@@ -16,7 +16,6 @@ const render = async (root, state) => {
     root.innerHTML = App(state)
 }
 
-
 // create content
 const App = (state) => {
     let { rovers, apod } = state
@@ -39,6 +38,7 @@ const App = (state) => {
                 ${ImageOfTheDay(apod)}
             </section>
         </main>
+        ${Tabs(store.rovers)}
         <footer></footer>
     `
 }
@@ -60,6 +60,15 @@ const Greeting = (name) => {
 
     return `
         <h1>Hello!</h1>
+    `
+}
+
+const Tabs = (state) => {
+    const rovers = state;
+    return `
+        <div class="tab">
+            ${rovers.map( rover => `<button class=\"tablinks\" onclick=\"openCity(event, ${rover})\"> ${rover} </button>`).join('')}
+        </div>
     `
 }
 
