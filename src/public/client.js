@@ -1,4 +1,5 @@
 let store = {
+    selectedRover: '',
     user: { name: "Student" },
     apod: '',
     rovers: ['Curiosity', 'Opportunity', 'Spirit'],
@@ -65,9 +66,11 @@ const Greeting = (name) => {
 
 const Tabs = (state) => {
     const rovers = state;
+    console.log(state.selectedRover);
     return `
         <div class="tab">
-            ${rovers.map( rover => `<button class=\"tablinks\" onclick=\"openCity(event, ${rover})\"> ${rover} </button>`).join('')}
+            ${ state.selectedRover != true ? rovers.map( rover => `<div><button class=\"tablinks\" onclick=\"openCity(event, ${rover})\"> ${rover} </button>`).join('')
+            : 'do nothing'}
         </div>
     `
 }
