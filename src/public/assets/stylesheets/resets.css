@@ -58,3 +58,12 @@ img {
   border: 1px solid #ccc;
   border-top: none;
 }
+
+.card {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    width:33%;
+    height: 300px;
+}
